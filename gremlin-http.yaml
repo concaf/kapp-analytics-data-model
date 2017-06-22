@@ -1,0 +1,23 @@
+name: gremlin-http
+containers:
+- image: registry.centos.org/datamodel/gremlin:concaf
+  command:
+  - /scripts/new-entrypoint.sh
+  env:
+  - name: REST
+    value: "1"
+  - name: DEBUG_GRAPH_METRICS
+    value: "0"
+  resources:
+    limits:
+      memory: 2G
+  volumeMounts:
+  - mountPath: /scripts
+    name: db
+persistentVolumes:
+- name: db
+  size: 500Mi
+services:
+- ports:
+  - port: 8182
+    targetPort: 8181

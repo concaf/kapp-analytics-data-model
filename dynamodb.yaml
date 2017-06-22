@@ -1,0 +1,14 @@
+name: dynamodb
+containers:
+- image: hilverd/dynamodb
+  resources:
+    limits:
+      memory: 4G
+services:  
+- ports:
+  - port: 8000
+    name: dyn-8080
+    targetPort: 8000
+  - port: 4567
+    name: dyn-4567
+    targetPort: 4567
