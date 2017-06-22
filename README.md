@@ -7,10 +7,18 @@ Once the service is up and running, we should be able to do the following on the
 
 This is just the first step. We should also be able to run the test suite mentioned at https://github.com/fabric8-analytics/fabric8-analytics-data-model/blob/master/README.md
 Essentially, the text blob which says,
-```shellsession
+```bash
 virtualenv --python /usr/bin/python2.7 env
 source env/bin/activate
 pip install -r requirements.txt
 cp src/config.py.template src/config.py
 PYTHONPATH=`pwd`/src py.test test/ -s
+```
+
+Before running the tests, make sure that you have set the following environment variables accordingly. An example would be -
+```bash
+export BAYESIAN_GREMLIN_WS_SERVICE_HOST=gremlin-websocket
+export BAYESIAN_GREMLIN_WS_SERVICE_PORT=80
+export BAYESIAN_GREMLIN_HTTP_SERVICE_HOST=gremlin-http
+export BAYESIAN_GREMLIN_HTTP_SERVICE_PORT=80
 ```

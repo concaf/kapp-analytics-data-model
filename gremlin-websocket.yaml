@@ -1,24 +1,24 @@
-name: gremlin-http
+name: gremlin-websocket
 containers:
 - image: registry.centos.org/datamodel/gremlin:concaf
+  volumeMounts:
+  - mountPath: /scripts
+    name: websocket-vol
   command:
   - /scripts/new-entrypoint.sh
   env:
-  - name: REST
-    value: "1"
   - name: DEBUG_GRAPH_METRICS
-    value: "0"
+    value: "1"
+  - name: INIT_DELAY
+    value: "20"
   resources:
     limits:
       memory: 2G
-  volumeMounts:
-  - mountPath: /scripts
-    name: db
-persistentVolumes:
-- name: db
-  size: 500Mi
 services:
 - ports:
   - port: 8182
     targetPort: 8182
-    endpoint: gremlin-http
+    endpoint: gremlin-websocket
+persistentVolumes:
+- size: 500Mi
+  name: websocket-vol
