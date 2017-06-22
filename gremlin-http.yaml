@@ -20,4 +20,4 @@ persistentVolumes:
 services:
 - ports:
   - port: 8182
-    targetPort: 8181
+    targetPort: 8182
