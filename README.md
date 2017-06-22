@@ -22,3 +22,6 @@ export BAYESIAN_GREMLIN_WS_SERVICE_PORT=80
 export BAYESIAN_GREMLIN_HTTP_SERVICE_HOST=gremlin-http
 export BAYESIAN_GREMLIN_HTTP_SERVICE_PORT=80
 ```
+
+Notes:
+- make sure the persistent volumes have been populated with the `new-entrypoint.sh` file and made executable
