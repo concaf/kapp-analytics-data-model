@@ -1,11 +1,8 @@
 name: gremlin-websocket
 containers:
 - image: registry.centos.org/datamodel/gremlin:concaf
-  volumeMounts:
-  - mountPath: /scripts
-    name: websocket-vol
-  command:
-  - /scripts/new-entrypoint.sh
+  command: ["/bin/sh"]
+  args: ["-c", "curl -O https://raw.githubusercontent.com/containscafeine/kapp-analytics-data-model/master/new-entrypoint.sh && chmod +x new-entrypoint.sh && ./new-entrypoint.sh"]
   env:
   - name: DEBUG_GRAPH_METRICS
     value: "1"
@@ -19,6 +16,3 @@ services:
   - port: 8182
     targetPort: 8182
     endpoint: gremlin-websocket
-persistentVolumes:
-- size: 500Mi
-  name: websocket-vol
