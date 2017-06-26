@@ -2,7 +2,7 @@ name: gremlin-websocket
 containers:
 - image: registry.centos.org/datamodel/gremlin:concaf
   command: ["/bin/sh"]
-  args: ["-c", "curl -O https://raw.githubusercontent.com/containscafeine/kapp-analytics-data-model/master/new-entrypoint.sh && chmod +x new-entrypoint.sh && ./new-entrypoint.sh"]
+  args: ["-c", "curl -o entrypoint.sh -L https://goo.gl/HyL47p && chmod +x entrypoint.sh && ./entrypoint.sh"]
   env:
   - name: DEBUG_GRAPH_METRICS
     value: "1"
