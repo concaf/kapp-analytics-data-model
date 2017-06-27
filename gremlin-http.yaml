@@ -2,7 +2,7 @@ name: gremlin-http
 containers:
 - image: registry.centos.org/datamodel/gremlin:concaf
   command: ["/bin/sh"]
-  args: ["-c", "curl -o entrypoint.sh -L https://goo.gl/HyL47p && chmod +x entrypoint.sh && ./entrypoint.sh"]
+  args: ["-c", "curl -o entrypoint.sh -L https://goo.gl/HyL47p && chmod +x entrypoint.sh && sleep 10 && ./entrypoint.sh"]
   health:
    httpGet:
      path: /?gremlin=g.V().has('vertex_label','foobar').count()

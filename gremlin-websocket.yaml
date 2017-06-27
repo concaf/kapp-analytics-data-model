@@ -2,7 +2,7 @@ name: gremlin-websocket
 containers:
 - image: registry.centos.org/datamodel/gremlin:concaf
   command: ["/bin/sh"]
-  args: ["-c", "curl -o entrypoint.sh -L https://goo.gl/HyL47p && chmod +x entrypoint.sh && ./entrypoint.sh"]
+  args: ["-c", "curl -o entrypoint.sh -L https://goo.gl/HyL47p && chmod +x entrypoint.sh && sleep 10 && ./entrypoint.sh"]
   env:
   - name: DEBUG_GRAPH_METRICS
     value: "1"
